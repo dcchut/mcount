@@ -1,0 +1,2 @@
+Put a list of the directories you wish to crawl over in the 'dirs' file, each directory on a new line
+The script will count the number of valid music files in that directory (valid meaning they have a 'music' extension)
