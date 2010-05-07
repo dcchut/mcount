@@ -1,5 +1,6 @@
 import optparse, os
 
+# count the number of files with a valid_extension in dir (and its subdirectories)
 def mcount(dir, valid_extensions):
 	i = 0
 	
