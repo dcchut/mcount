@@ -25,11 +25,11 @@ def main():
 	
 	# get any extensions added from the cmd line
 	if (options.e is not None):
-		valid_extensions += options.e.split(',')
+		valid_extensions += map(lambda x: x.lower(), options.e.split(','))
 	
 	# get any stored in a defined file
 	if (options.f is not None and os.path.exists(options.f)):
-		valid_extensions += map(lambda x: x.strip(), open(options.f, 'rb').readlines())
+		valid_extensions += map(lambda x: x.lower(), open(options.f, 'rb').read().split(','))
 	
 	# get rid of dupes
 	valid_extensions = list(set(valid_extensions))
