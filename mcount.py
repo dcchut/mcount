@@ -4,6 +4,9 @@ import optparse, os
 def mcount(dir, valid_extensions):
 	i = 0
 	
+	if not os.path.isdir(dir):
+		return 0
+		
 	for wd in os.walk(dir):
 		for filename in wd[2]:
 			if (os.path.splitext(filename)[1][1:] in valid_extensions):
@@ -40,7 +43,7 @@ def main():
 	else:
 		# we take all the directories which actually exist
 		dirs = filter(lambda x: os.path.exists(x), arguments)
-		
+	
 	# count the number of music files
 	total = reduce(lambda x, y: x + mcount(y, valid_extensions), dirs, 0)
 	
