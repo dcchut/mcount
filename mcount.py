@@ -42,7 +42,7 @@ def main():
 		dirs = [os.getcwd()]
 	else:
 		# we take all the directories which actually exist
-		dirs = filter(lambda x: os.path.exists(x), arguments)
+		dirs = filter(lambda x: os.path.exists(x) or os.path.isdir(x), arguments)
 	
 	# count the number of music files
 	total = reduce(lambda x, y: x + mcount(y, valid_extensions), dirs, 0)
